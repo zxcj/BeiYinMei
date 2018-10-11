@@ -10,6 +10,7 @@ var timeCountdown = null;
 var tmp_NaiPingROt;
 var curDegreed=0;
 var rotTimer=null;
+var WaitToClick=false;
 AR.onload = function() {
 	excuteOpperate = new HomeView();
 	excuteOpperate.Initialize();
@@ -94,8 +95,8 @@ SLAMView.prototype = {
 		//Set model to center
 		var ua = AR.getUserAgent();
 		var screenSize = ua.split(';')[3].split(' ')[1];
-		var screenWith = screenSize.split('x')[1];
 		var screenHeight = screenSize.split('x')[0];
+		var screenWidth = screenSize.split('x')[1];
 		if (screenHeight > 1100)
 			setSlamPos(500, 1020);
 		else {
@@ -124,7 +125,8 @@ SLAMView.prototype = {
 						AR.log("回调啦！")
 					}
 				});
-				AR.set_texture("UI2_wenzi", "BYM.fbm/danmu5.png");
+				AR.set_texture("UI2_wenzi1", "BYM.fbm/danmu5.png");
+				AR.set_visiable("UI2_tishi",false);
 				var tmp_CurROt = AR.get_rotation("naiping_Mod_01");
 				var down = antHelper.toRadian(downAngle);
 				var up = antHelper.toRadian(upAngel);
@@ -157,7 +159,8 @@ SLAMView.prototype = {
 			return;
 		};
 
-		if (_nodeId == "UI3_beijing") {
+		if (_nodeId == "UI3_beijing" && WaitToClick) {
+			WaitToClick=false;
 			if (gameState == "faile") {
 				excuteOpperate.OnRelease();
 			} else {
@@ -178,6 +181,20 @@ SLAMView.prototype = {
 		AR.set_visible("group_Mod", false);
 		AR.set_texture("UI2_shuzi01", "bundle/time/1.png");
 		AR.set_texture("UI2_shuzi02", "bundle/time/5.png");
+		AR.set_texture("UI2_nengliang2","bundle/progressbar/nengliangtiao1.png");
+		
+		AR.play("group_Mod#AmorReset",1);
+		AR.play("Bip001#HeadReset",1);
+		AR.play("Bone039#SheildReset",1);
+
+
+		AR.set_visiable("zhuangbei_Mod_01",false);
+		AR.set_visiable("zhuangbei_Mod_02",false);
+		AR.set_visiable("zhuangbei_Mod_03",false);
+		AR.set_visiable("UI2_wenzi2",false);
+		AR.set_visiable("UI2_wenzi3",false);
+		AR.set_visiable("UI2_wenzi4",false);
+
 		excuteOpperate = new HomeView();
 		excuteOpperate.Initialize();
 	}
@@ -228,8 +245,7 @@ setSlamPos = function(x, y) {
 	Instantiated = true;
 };
 
-function GameOver() {	
-	AR.log("Gagme State: "+gameState);
+function GameOver() {		
 	AR.set_visible("Group_UI3", true);
 	if (timeCountdown != null)
 		AR.clearInterval(timeCountdown);
@@ -241,6 +257,9 @@ function GameOver() {
 	} else if (gameState == "faile") {
 		AR.set_texture("UI3_beijing","BYM.fbm/pop_1.png");
 	}
+	AR.setTimeout(function(){
+		WaitToClick=true;
+	},1000);
 }
 
 
@@ -255,6 +274,7 @@ function CtrlUI2View(_state) {
 	AR.set_visible("UI2_shuzi01", _state);
 	AR.set_visible("UI2_shuzi02", _state);
 	AR.set_visible("UI2_shijian", _state);
+	AR.set_visible("UI2_wenzi1", _state);
 }
 
 ;
@@ -728,7 +748,7 @@ function CtrlUI2View(_state) {
 					switch (G) {
 						case 3:
 							AR.set_texture("UI2_nengliang2", "bundle/progressbar/nengliangtiao4.png");
-							AR.set_texture("UI2_wenzi", "BYM.fbm/danmu4.png");
+							AR.set_texture("UI2_wenzi1", "BYM.fbm/danmu4.png");
 
 							AR.stop("Bone039#AmorLoop");
 							AR.stop("group_Mod#AmorLoop");
@@ -737,17 +757,20 @@ function CtrlUI2View(_state) {
 							AR.play("Bone039#SheildAppear", 1);
 							AR.play("group_Mod#SheildAppear", 1);
 							AR.play("Bip001#SheildAppear", 1);
+							AR.set_visiable("zhuangbei_Mod_02",true);
+							AR.set_visiable("UI2_wenzi3",false);
+							AR.set_visiable("UI2_wenzi4",true);
 
 							AR.setTimeout(function() {
 								gameState = "success";
 								GameOver();
 							}, 3500);
+							AR.clearInterval(rotTimer);
 							AR.clearInterval(H);
 							break;
 						case 7:
 							AR.set_texture("UI2_nengliang2", "bundle/progressbar/nengliangtiao3.png");
-							AR.set_texture("UI2_wenzi", "BYM.fbm/danmu3.png");
-							AR.set_texture("UI2_wenzi", "BYM.fbm/danmu2.png");
+							AR.set_texture("UI2_wenzi1", "BYM.fbm/danmu3.png");
 							AR.stop("Bip001#HeadLoop");
 							AR.stop("Bone039#HeadLoop");
 							AR.stop("group_Mod#HeadLoop");
@@ -755,10 +778,14 @@ function CtrlUI2View(_state) {
 							AR.play("Bone039#AmorAppear", 1);
 							AR.play("group_Mod#AmorAppear", 1);
 							AR.play("Bip001#AmorAppear", 1);
+							AR.set_visiable("zhuangbei_Mod_01",true);
+							AR.set_visiable("UI2_wenzi2",false);
+							AR.set_visiable("UI2_wenzi3",true);
+
 							break;
 						case 10:
 							AR.set_texture("UI2_nengliang2", "bundle/progressbar/nengliangtiao2.png");
-							AR.set_texture("UI2_wenzi", "BYM.fbm/danmu2.png");
+							AR.set_texture("UI2_wenzi1", "BYM.fbm/danmu2.png");
 							AR.stop("Bip001#Cry");
 							AR.stop("Bip001#Cry");
 							AR.stop("Bone039#Cry");
@@ -767,6 +794,8 @@ function CtrlUI2View(_state) {
 							AR.play("Bip001#HeadAppear", 1);
 							AR.play("Bone039#HeadAppear", 1);
 							AR.play("group_Mod#HeadAppear", 1);
+							AR.set_visiable("zhuangbei_Mod_03",true);
+							AR.set_visiable("UI2_wenzi2",true);
 							break;
 					}
 				}

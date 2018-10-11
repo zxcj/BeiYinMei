@@ -368,3 +368,84 @@ material Material__76 : textured
     }
 }
 
+material lambert2 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/tishi2.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material lambert3 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/tishi3.png
+    }
+    renderState
+    {
+        depthFunc=ALWAYS
+    }
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material lambert4 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/tishi.png
+    }
+    renderState
+    {
+        depthFunc=ALWAYS
+    }
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material lambert6 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/danmu1.png
+    }
+    renderState
+    {
+        depthFunc=ALWAYS
+    }
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+

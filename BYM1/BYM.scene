@@ -65,15 +65,28 @@ scene
         oneBoundMin=0,0,0
         oneBoundMax=0.1,0.1,0.1
     }
-    node UI2_wenzi
+    node UI2_wenzi1
     {
         oneBoundMin=0,0,0
-        oneBoundMax=0.1,0.1,0.1
+        oneBoundMax=0.1,0.1,0.1        
     }
     node UI2_wenzi2
     {
         oneBoundMin=0,0,0
         oneBoundMax=0.1,0.1,0.1
+        enabled=false
+    }
+    node UI2_wenzi3
+    {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
+        enabled=false
+    }
+    node UI2_wenzi4
+    {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
+        enabled=false
     }
     node UI3_beijing
     {
@@ -129,16 +142,24 @@ scene
     {
         oneBoundMin=0,0,0
         oneBoundMax=0.1,0.1,0.1
+        enabled=false    
     }
     node zhuangbei_Mod_02
     {
         oneBoundMin=0,0,0
         oneBoundMax=0.1,0.1,0.1
+        enabled=false
     }
     node zhuangbei_Mod_03
     {
         oneBoundMin=0,0,0
         oneBoundMax=0.1,0.1,0.1
+        enabled=false
     }
 
+    node UI2_tishi
+    {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
+    }
 }
