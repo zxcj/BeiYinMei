@@ -8,11 +8,12 @@ var gameState = "Waitting";
 var curProgress = 0;
 var timeCountdown = null;
 var tmp_NaiPingROt;
+var curDegreed=0;
+var rotTimer=null;
 AR.onload = function() {
 	excuteOpperate = new HomeView();
 	excuteOpperate.Initialize();
 	tmp_NaiPingROt = AR.get_rotation("naiping_Mod_01");
-AR.log(antHelper.toDegree(tmp_NaiPingROt.y));
 };
 
 AR.onbegin = function(clipId) {};
@@ -127,24 +128,26 @@ SLAMView.prototype = {
 				var tmp_CurROt = AR.get_rotation("naiping_Mod_01");
 				var down = antHelper.toRadian(downAngle);
 				var up = antHelper.toRadian(upAngel);
-				var t = AR.setInterval(function() {
+				rotTimer = AR.setInterval(function() {
 					var tmp_CurROt = AR.get_rotation("naiping_Mod_01");
 					if (preessed) {
-						if (antHelper.toDegree(tmp_CurROt.y) >= 45) {
+						if (curDegreed >= 30) {
 							gameState = "faile";
 							GameOver();
-							AR.clearInterval(t);
+							AR.clearInterval(rotTimer);
 						}
 						var step = (up - tmp_CurROt.y) / 10;
+						curDegreed+=antHelper.toDegree(step);
 						AR.rotate("naiping_Mod_01", 0, step, 0);
 						preessed = false;
 					} else {
-						if (antHelper.toDegree(tmp_CurROt.y) >= 15) {
+						if (curDegreed < -45) {
 							gameState = "faile";
 							GameOver();
-							AR.clearInterval(t);
+							AR.clearInterval(rotTimer);
 						}
 						var step = (down - tmp_CurROt.y) / 50;
+						curDegreed+=antHelper.toDegree(step);
 						AR.rotate("naiping_Mod_01", 0, step, 0);
 					}
 				}, 50);
@@ -158,15 +161,18 @@ SLAMView.prototype = {
 			if (gameState == "faile") {
 				excuteOpperate.OnRelease();
 			} else {
-
+				antHelper.getTicket("bym");
 			}
 		}
 	},
 	OnRelease: function() {
 		var curROt = AR.get_rotation("naiping_Mod_01");
-		AR.log(antHelper.toDegree(curROt.y));
-		AR.rotate("naiping_Mod_01", 0, antHelper.toRadian(45),0);
-
+		if(Math.abs(antHelper.toDegree(curROt.y)<=15)){
+			AR.rotate("naiping_Mod_01", 0, antHelper.toRadian(-curDegreed),0);
+		}
+		else
+			AR.rotate("naiping_Mod_01", 0, antHelper.toRadian(curDegreed),0);
+		curDegreed=0;
 		AR.set_visible("Group_UI3", false);
 		gameState = "Waitting";
 		AR.set_visible("group_Mod", false);
@@ -222,15 +228,18 @@ setSlamPos = function(x, y) {
 	Instantiated = true;
 };
 
-function GameOver() {
+function GameOver() {	
+	AR.log("Gagme State: "+gameState);
 	AR.set_visible("Group_UI3", true);
 	if (timeCountdown != null)
 		AR.clearInterval(timeCountdown);
+	if(rotTimer!=null)
+		AR.clearInterval(rotTimer);
 	CtrlUI2View(false);
 	if (gameState == "success") {
-
+		AR.set_texture("UI3_beijing","BYM.fbm/pop_2.png");
 	} else if (gameState == "faile") {
-
+		AR.set_texture("UI3_beijing","BYM.fbm/pop_1.png");
 	}
 }
 
@@ -910,5 +919,5 @@ function CtrlUI2View(_state) {
 
 var antHelper = new AntHelper({
 	// 项目ID，必填
-	projectId: "583076965"
+	projectId: "223959490"
 });

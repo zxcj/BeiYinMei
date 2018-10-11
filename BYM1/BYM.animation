@@ -12,7 +12,54 @@ animation Bip001
         end = 650
         repeatCount = 1
     }
-
+     clip Appear
+    {
+        begin = 0
+        end = 75
+        repeatCount = 1
+    }
+    clip Cry
+    {
+        begin = 75
+        end = 215
+        repeatCount = 1
+    }
+    clip HeadAppear
+    {
+        begin = 230
+        end = 290
+        repeatCount = 1
+    }
+    clip HeadLoop
+    {
+        begin = 290
+        end = 330
+        repeatCount = 1
+    }
+    clip AmorAppear
+    {
+        begin = 330
+        end = 385
+        repeatCount = 1
+    }
+    clip AmorLoop
+    {
+        begin = 385
+        end = 450
+        repeatCount = 1
+    }
+    clip SheildAppear
+    {
+        begin = 450
+        end = 475
+        repeatCount = 1
+    }
+    clip Happy
+    {
+        begin = 475
+        end = 555
+        repeatCount = 1
+    }
 }
 
 animation Bone039
@@ -29,7 +76,54 @@ animation Bone039
         end = 650
         repeatCount = 1
     }
-
+    clip Appear
+    {
+        begin = 0
+        end = 75
+        repeatCount = 1
+    }
+    clip Cry
+    {
+        begin = 75
+        end = 215
+        repeatCount = 1
+    }
+    clip HeadAppear
+    {
+        begin = 230
+        end = 290
+        repeatCount = 1
+    }
+    clip HeadLoop
+    {
+        begin = 290
+        end = 330
+        repeatCount = 1
+    }
+    clip AmorAppear
+    {
+        begin = 330
+        end = 385
+        repeatCount = 1
+    }
+    clip AmorLoop
+    {
+        begin = 385
+        end = 450
+        repeatCount = 1
+    }
+    clip SheildAppear
+    {
+        begin = 450
+        end = 475
+        repeatCount = 1
+    }
+    clip Happy
+    {
+        begin = 475
+        end = 555
+        repeatCount = 1
+    }
 }
 
 animation group_Mod
@@ -46,6 +140,53 @@ animation group_Mod
         end = 650
         repeatCount = 1
     }
-
+    clip Appear
+    {
+        begin = 0
+        end = 75
+        repeatCount = 1
+    }
+    clip Cry
+    {
+        begin = 75
+        end = 215
+        repeatCount = 1
+    }
+    clip HeadAppear
+    {
+        begin = 230
+        end = 290
+        repeatCount = 1
+    }
+    clip HeadLoop
+    {
+        begin = 290
+        end = 330
+        repeatCount = 1
+    }
+    clip AmorAppear
+    {
+        begin = 330
+        end = 385
+        repeatCount = 1
+    }
+    clip AmorLoop
+    {
+        begin = 385
+        end = 450
+        repeatCount = 1
+    }
+    clip SheildAppear
+    {
+        begin = 450
+        end = 475
+        repeatCount = 1
+    }
+    clip Happy
+    {
+        begin = 475
+        end = 555
+        repeatCount = 1
+    }
 }
 

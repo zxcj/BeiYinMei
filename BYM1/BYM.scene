@@ -5,92 +5,139 @@ scene
     showDefaultLight = false
     ambientColor = 1.0, 1.0, 1.0
 
-    modelSize = 4096.0
+    modelSize = 700.0
     modelScale = 1.0
-
+    defaultModelId = group_Mod
+    
     node Group_UI1
     {
+        enabled=false
+        static=true
     }
     node Group_UI2
     {
+        enabled=false
+        static=true
     }
     node Group_UI3
     {
+        enabled=false
+        static=true
     }
     node UI1_beijing
     {
     }
     node UI1_duiqi
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
+        enabled=false
     }
     node UI1_zhaohuan
     {
+        enabled=false
     }
     node UI2_naiping
     {
     }
     node UI2_nengliang
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node UI2_nengliang2
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node UI2_shijian
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node UI2_shuzi01
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node UI2_shuzi02
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node UI2_wenzi
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node UI2_wenzi2
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node UI3_beijing
     {
     }
     node baobao_Mod_01
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node baobao_Mod_02
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node baobao_Mod_03
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node baobao_Mod_04
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node group_Mod
     {
+        enabled=false
     }
     node group_NaiPing
     {
     }
     node group_heibian
     {
+        enabled=false
     }
     node heibian1
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node heibian2
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node naiping_Mod_01
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node zhuangbei_Mod_01
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node zhuangbei_Mod_02
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
     node zhuangbei_Mod_03
     {
+        oneBoundMin=0,0,0
+        oneBoundMax=0.1,0.1,0.1
     }
 
 }

@@ -21,7 +21,7 @@ material textured
             
             renderState
             {
-                blend = false
+                blend = true
                 blendDst = ONE_MINUS_SRC_ALPHA
                 blendSrc = SRC_ALPHA
                 cullFace = true
@@ -93,7 +93,10 @@ material Material__60 : textured
     {
         path = BYM.fbm/qidongye.png
     }
-
+    renderState
+    {
+        depthFunc=ALWAYS
+    }
     technique
     {
         pass 
@@ -111,7 +114,10 @@ material Material__63 : textured
     {
         path = BYM.fbm/btn_zhaohuan.png
     }
-
+    renderState
+    {
+        depthFunc=ALWAYS
+    }
     technique
     {
         pass 
@@ -129,7 +135,10 @@ material Material__64 : textured
     {
         path = BYM.fbm/yindao.png
     }
-
+    renderState
+    {
+        depthFunc=ALWAYS
+    }
     technique
     {
         pass 
@@ -146,6 +155,11 @@ material Material__66 : textured
     sampler u_diffuseTexture
     {
         path = BYM.fbm/btn_weinai.png
+    }
+
+    renderState
+    {
+        depthFunc=ALWAYS
     }
 
     technique
@@ -165,7 +179,10 @@ material Material__67 : textured
     {
         path = BYM.fbm/danmu1.png
     }
-
+    renderState
+    {
+        depthFunc=ALWAYS
+    }
     technique
     {
         pass 
@@ -183,7 +200,10 @@ material Material__68 : textured
     {
         path = BYM.fbm/nengliangtiao1.png
     }
-
+    renderState
+    {
+        depthFunc=ALWAYS
+    }
     technique
     {
         pass 
@@ -199,9 +219,12 @@ material Material__69 : textured
 {
     sampler u_diffuseTexture
     {
-        path = BYM.fbm/nengliangtiao2.png
+        path = bundle/progressbar/nengliangtiao1.png
     }
-
+    renderState
+    {
+        depthFunc=ALWAYS
+    }
     technique
     {
         pass 
@@ -219,7 +242,10 @@ material Material__70 : textured
     {
         path = BYM.fbm/tishi1.png
     }
-
+    renderState
+    {
+        depthFunc=ALWAYS
+    }
     technique
     {
         pass 
@@ -235,7 +261,7 @@ material Material__71 : textured
 {
     sampler u_diffuseTexture
     {
-        path = BYM.fbm/1.png
+        path = bundle/time/1.png
     }
 
     technique
@@ -253,7 +279,7 @@ material Material__72 : textured
 {
     sampler u_diffuseTexture
     {
-        path = BYM.fbm/5.png
+        path = bundle/time/5.png
     }
 
     technique
@@ -291,7 +317,10 @@ material Material__74 : textured
     {
         path = BYM.fbm/pop_1.png
     }
-
+    renderState
+    {
+        depthFunc=ALWAYS
+    }
     technique
     {
         pass 
