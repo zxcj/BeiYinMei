@@ -5,10 +5,10 @@ scene
     showDefaultLight = false
     ambientColor = 1.0, 1.0, 1.0
 
-    modelSize = 700.0
+    modelSize = 800.0
     modelScale = 1.0
     defaultModelId = group_Mod
-    
+
     node Group_UI1
     {
         enabled=false
@@ -101,6 +101,7 @@ scene
     node group_Mod
     {
         enabled=false
+        scale =0.8,0.8,0.8
     }
     node group_NaiPing
     {
