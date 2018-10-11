@@ -1,0 +1,96 @@
+scene
+{
+    path = BYM.gpb
+
+    showDefaultLight = false
+    ambientColor = 1.0, 1.0, 1.0
+
+    modelSize = 4096.0
+    modelScale = 1.0
+
+    node Group_UI1
+    {
+    }
+    node Group_UI2
+    {
+    }
+    node Group_UI3
+    {
+    }
+    node UI1_beijing
+    {
+    }
+    node UI1_duiqi
+    {
+    }
+    node UI1_zhaohuan
+    {
+    }
+    node UI2_naiping
+    {
+    }
+    node UI2_nengliang
+    {
+    }
+    node UI2_nengliang2
+    {
+    }
+    node UI2_shijian
+    {
+    }
+    node UI2_shuzi01
+    {
+    }
+    node UI2_shuzi02
+    {
+    }
+    node UI2_wenzi
+    {
+    }
+    node UI2_wenzi2
+    {
+    }
+    node UI3_beijing
+    {
+    }
+    node baobao_Mod_01
+    {
+    }
+    node baobao_Mod_02
+    {
+    }
+    node baobao_Mod_03
+    {
+    }
+    node baobao_Mod_04
+    {
+    }
+    node group_Mod
+    {
+    }
+    node group_NaiPing
+    {
+    }
+    node group_heibian
+    {
+    }
+    node heibian1
+    {
+    }
+    node heibian2
+    {
+    }
+    node naiping_Mod_01
+    {
+    }
+    node zhuangbei_Mod_01
+    {
+    }
+    node zhuangbei_Mod_02
+    {
+    }
+    node zhuangbei_Mod_03
+    {
+    }
+
+}

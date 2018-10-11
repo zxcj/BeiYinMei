@@ -1,0 +1,51 @@
+animation Bip001
+{
+    frameCount = 650
+
+    startTime = 0
+
+    stopTime = 21666
+
+    clip Default
+    {
+        begin = 0
+        end = 650
+        repeatCount = 1
+    }
+
+}
+
+animation Bone039
+{
+    frameCount = 650
+
+    startTime = 0
+
+    stopTime = 21666
+
+    clip Default
+    {
+        begin = 0
+        end = 650
+        repeatCount = 1
+    }
+
+}
+
+animation group_Mod
+{
+    frameCount = 650
+
+    startTime = 0
+
+    stopTime = 21666
+
+    clip Default
+    {
+        begin = 0
+        end = 650
+        repeatCount = 1
+    }
+
+}
+

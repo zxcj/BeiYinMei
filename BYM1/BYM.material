@@ -1,0 +1,341 @@
+material textured
+{
+    sampler u_diffuseTexture
+    {
+        mipmap = false
+        wrapS = CLAMP
+        wrapT = CLAMP
+        minFilter = LINEAR
+        magFilter = LINEAR
+    }
+
+    technique
+    {
+        pass 
+        {
+            vertexShader = shaders/textured.vert
+            fragmentShader = shaders/textured.frag
+
+            u_inverseTransposeWorldViewMatrix = INVERSE_TRANSPOSE_WORLD_VIEW_MATRIX
+            u_worldViewProjectionMatrix = WORLD_VIEW_PROJECTION_MATRIX
+            
+            renderState
+            {
+                blend = false
+                blendDst = ONE_MINUS_SRC_ALPHA
+                blendSrc = SRC_ALPHA
+                cullFace = true
+                cullFaceSide = BACK
+                depthTest = true
+            }
+            
+        }
+    }
+}
+
+material Material__54 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/heibian.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__55 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/BYM_zhuangbei_01_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__57 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/BYM_naiping_01_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__60 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/qidongye.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__63 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/btn_zhaohuan.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__64 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/yindao.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__66 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/btn_weinai.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__67 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/danmu1.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__68 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/nengliangtiao1.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__69 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/nengliangtiao2.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__70 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/tishi1.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__71 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/1.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__72 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/5.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__73 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/s.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__74 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/pop_1.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__75 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/BYM_yiner_01_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
+material Material__76 : textured
+{
+    sampler u_diffuseTexture
+    {
+        path = BYM.fbm/BYM_yiner_01_Tex.png
+    }
+
+    technique
+    {
+        pass 
+        {
+            u_matrixPalette = MATRIX_PALETTE
+            
+            defines = DIRECTIONAL_LIGHT_COUNT 1;SKINNING;SKINNING_JOINT_COUNT 40
+        }
+    }
+}
+
