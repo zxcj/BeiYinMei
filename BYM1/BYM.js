@@ -11,6 +11,8 @@ var tmp_NaiPingROt;
 var curDegreed=0;
 var rotTimer=null;
 var WaitToClick=false;
+var tipsTimerUp=null;
+var tipsTimerDown=null;
 AR.onload = function() {
 	excuteOpperate = new HomeView();
 	excuteOpperate.Initialize();
@@ -133,7 +135,18 @@ SLAMView.prototype = {
 				rotTimer = AR.setInterval(function() {
 					var tmp_CurROt = AR.get_rotation("naiping_Mod_01");
 					if (preessed) {
-						if (curDegreed >= 30) {
+						if(curDegreed>=35 && tipsTimerUp==null){
+							AR.set_visiable("UI2_tishi",true);
+							AR.set_texture("UI2_tishi","BYM.fbm/tishi6.png");
+							if(tipsTimerUp!=null)AR.clearInterval(tipsTimerUp);
+							tipsTimerUp=AR.setTimeout(function(){
+								AR.set_visiable("UI2_tishi",false);
+								AR.clearInterval(tipsTimerUp);
+								tipsTimerUp=null;
+							},800);
+						}
+
+						if (curDegreed >= 45) {
 							gameState = "faile";
 							GameOver();
 							AR.clearInterval(rotTimer);
@@ -143,6 +156,16 @@ SLAMView.prototype = {
 						AR.rotate("naiping_Mod_01", 0, step, 0);
 						preessed = false;
 					} else {
+						if(curDegreed<=-25 && tipsTimerDown==null){
+							AR.set_visiable("UI2_tishi",true);
+							AR.set_texture("UI2_tishi","BYM.fbm/tishi5.png");
+							if(tipsTimerDown!=null)AR.clearInterval(tipsTimerDown);
+							tipsTimerDown=AR.setTimeout(function(){
+								AR.set_visiable("UI2_tishi",false);
+								AR.clearInterval(tipsTimerDown);
+								tipsTimerDown=null;
+							},800);
+						}
 						if (curDegreed < -45) {
 							gameState = "faile";
 							GameOver();
@@ -169,6 +192,8 @@ SLAMView.prototype = {
 		}
 	},
 	OnRelease: function() {
+		AR.set_texture("UI2_tishi","BYM.fbm/tishi.png");
+
 		var curROt = AR.get_rotation("naiping_Mod_01");
 		if(Math.abs(antHelper.toDegree(curROt.y)<=15)){
 			AR.rotate("naiping_Mod_01", 0, antHelper.toRadian(-curDegreed),0);
@@ -182,7 +207,7 @@ SLAMView.prototype = {
 		AR.set_texture("UI2_shuzi01", "bundle/time/1.png");
 		AR.set_texture("UI2_shuzi02", "bundle/time/5.png");
 		AR.set_texture("UI2_nengliang2","bundle/progressbar/nengliangtiao1.png");
-		
+		AR.set_texture("UI2_wenzi1", "BYM.fbm/danmu1.png");
 		AR.play("group_Mod#AmorReset",1);
 		AR.play("Bip001#HeadReset",1);
 		AR.play("Bone039#SheildReset",1);
@@ -275,6 +300,7 @@ function CtrlUI2View(_state) {
 	AR.set_visible("UI2_shuzi02", _state);
 	AR.set_visible("UI2_shijian", _state);
 	AR.set_visible("UI2_wenzi1", _state);
+	AR.set_visiable("UI2_tishi",_state);
 }
 
 ;
