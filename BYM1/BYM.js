@@ -14,6 +14,8 @@ var WaitToClick=false;
 var tipsTimerUp=null;
 var tipsTimerDown=null;
 AR.onload = function() {
+
+
 	excuteOpperate = new HomeView();
 	excuteOpperate.Initialize();
 	tmp_NaiPingROt = AR.get_rotation("naiping_Mod_01");
@@ -146,7 +148,7 @@ SLAMView.prototype = {
 							},800);
 						}
 
-						if (curDegreed >= 45) {
+						if (curDegreed >= 60) {
 							gameState = "faile";
 							GameOver();
 							AR.clearInterval(rotTimer);
@@ -156,7 +158,7 @@ SLAMView.prototype = {
 						AR.rotate("naiping_Mod_01", 0, step, 0);
 						preessed = false;
 					} else {
-						if(curDegreed<=-25 && tipsTimerDown==null){
+						if(curDegreed<=-45 && tipsTimerDown==null){
 							AR.set_visiable("UI2_tishi",true);
 							AR.set_texture("UI2_tishi","BYM.fbm/tishi5.png");
 							if(tipsTimerDown!=null)AR.clearInterval(tipsTimerDown);
@@ -166,7 +168,7 @@ SLAMView.prototype = {
 								tipsTimerDown=null;
 							},800);
 						}
-						if (curDegreed < -45) {
+						if (curDegreed < -100) {
 							gameState = "faile";
 							GameOver();
 							AR.clearInterval(rotTimer);
@@ -175,7 +177,7 @@ SLAMView.prototype = {
 						curDegreed+=antHelper.toDegree(step);
 						AR.rotate("naiping_Mod_01", 0, step, 0);
 					}
-				}, 50);
+				}, 100);
 			}
 			if (preessed) preessed = false;
 			else preessed = true;
@@ -195,7 +197,7 @@ SLAMView.prototype = {
 		AR.set_texture("UI2_tishi","BYM.fbm/tishi.png");
 
 		var curROt = AR.get_rotation("naiping_Mod_01");
-		if(Math.abs(antHelper.toDegree(curROt.y)<=15)){
+		if(Math.abs(antHelper.toDegree(curROt.y)<=100)){
 			AR.rotate("naiping_Mod_01", 0, antHelper.toRadian(-curDegreed),0);
 		}
 		else
