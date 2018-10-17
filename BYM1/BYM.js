@@ -13,19 +13,54 @@ var rotTimer=null;
 var WaitToClick=false;
 var tipsTimerUp=null;
 var tipsTimerDown=null;
+var cryTimeout =null;
 AR.onload = function() {
-
-
 	excuteOpperate = new HomeView();
 	excuteOpperate.Initialize();
 	tmp_NaiPingROt = AR.get_rotation("naiping_Mod_01");
+
+	var option = '/{/n"repeatCount": "1",/n"playEnd": ""/}';
+	// var optionLoop = '/{/n"repeatCount": "999",/n"playEnd": ""/}';
+	AR.audio.set("bundle/audios/bgm.mp3", option)
+	AR.audio.set("bundle/audios/headappear.mp3", option)
+	AR.audio.set("bundle/audios/amorappear.mp3", option)
+	AR.audio.set("bundle/audios/cry.mp3", option)
+	AR.audio.set("bundle/audios/sheildappear.mp3", option)
+	AR.audio.set("bundle/audios/failed.mp3", option)
+	AR.audio.set("bundle/audios/success.mp3", option)
+
+	AR.audio.play("bundle/audios/bgm.mp3");
+	AR.setInterval(function(){
+		AR.audio.set("bundle/audios/bgm.mp3", option)
+		AR.audio.play("bundle/audios/bgm.mp3");
+	},24000);
 };
 
-AR.onbegin = function(clipId) {};
+AR.onbegin = function(clipId) {
+	if(clipId == "Bip001#HeadAppear"){
+		AR.audio.play("bundle/audios/headappear.mp3");
+	};
+
+	if(clipId == "Bone039#AmorAppear"){
+		AR.audio.play("bundle/audios/amorappear.mp3");
+		if(cryTimeout!=null)
+		{
+			AR.clearInterval(cryTimeout);
+			AR.audio.stop("bundle/audios/cry.mp3");
+		}
+	};
+	if(clipId == "Bone039#SheildAppear"){
+		AR.audio.play("bundle/audios/sheildappear.mp3");
+	};
+};
 
 AR.onend = function(clipId) {
 	if (clipId == "Bip001#Appear") {
 		AR.animation.play("Bip001#Cry", 0);
+		AR.audio.play("bundle/audios/cry.mp3");
+		cryTimeout = AR.setInterval(function(){		
+			AR.audio.play("bundle/audios/cry.mp3");
+		},1500);
 	};
 
 	if (clipId == "Bone039#HeadAppear") {
@@ -94,7 +129,7 @@ SLAMView.prototype = {
 		AR.set_visiable("UI1_zhaohuan", false);
 
 		CtrlUI2View(true);
-
+		AR.audio_play("bundle/audios/apprea1.mp3");
 
 		//Set model to center
 		var ua = AR.getUserAgent();
@@ -181,6 +216,7 @@ SLAMView.prototype = {
 			}
 			if (preessed) preessed = false;
 			else preessed = true;
+			AR.audio_play("bundle/audios/click.mp3");
 			return;
 		};
 
@@ -273,6 +309,11 @@ setSlamPos = function(x, y) {
 };
 
 function GameOver() {		
+	if(cryTimeout!=null)
+	{
+		AR.clearInterval(cryTimeout);
+		AR.audio.stop("bundle/audios/cry.mp3");
+	}
 	AR.set_visible("Group_UI3", true);
 	if (timeCountdown != null)
 		AR.clearInterval(timeCountdown);
@@ -281,8 +322,10 @@ function GameOver() {
 	CtrlUI2View(false);
 	if (gameState == "success") {
 		AR.set_texture("UI3_beijing","BYM.fbm/pop_2.png");
+		AR.audio.play("bundle/audios/success.mp3");
 	} else if (gameState == "faile") {
 		AR.set_texture("UI3_beijing","BYM.fbm/pop_1.png");
+		AR.audio.play("bundle/audios/failed.mp3");
 	}
 	AR.setTimeout(function(){
 		WaitToClick=true;
@@ -809,7 +852,6 @@ function CtrlUI2View(_state) {
 							AR.set_visiable("zhuangbei_Mod_01",true);
 							AR.set_visiable("UI2_wenzi2",false);
 							AR.set_visiable("UI2_wenzi3",true);
-
 							break;
 						case 10:
 							AR.set_texture("UI2_nengliang2", "bundle/progressbar/nengliangtiao2.png");
