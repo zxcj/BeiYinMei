@@ -19,19 +19,20 @@ AR.onload = function() {
 	excuteOpperate.Initialize();
 	tmp_NaiPingROt = AR.get_rotation("naiping_Mod_01");
 
-	var option = '/{/n"repeatCount": "1",/n"playEnd": ""/}';
-	// var optionLoop = '/{/n"repeatCount": "999",/n"playEnd": ""/}';
-	AR.audio.set("bundle/audios/bgm.mp3", option)
-	AR.audio.set("bundle/audios/headappear.mp3", option)
-	AR.audio.set("bundle/audios/amorappear.mp3", option)
-	AR.audio.set("bundle/audios/cry.mp3", option)
-	AR.audio.set("bundle/audios/sheildappear.mp3", option)
-	AR.audio.set("bundle/audios/failed.mp3", option)
-	AR.audio.set("bundle/audios/success.mp3", option)
+	var option = JSON.stringify({"repeatCount": "1","playEnd": ""});
+	var bgmOption = JSON.stringify({"repeatCount": "999","bgmEnd": ""});
+
+	AR.audio.set("bundle/audios/bgm.mp3", bgmOption);
+	AR.audio.set("bundle/audios/headappear.mp3", option);
+	AR.audio.set("bundle/audios/amorappear.mp3", option);
+	AR.audio.set("bundle/audios/cry.mp3", option);
+	AR.audio.set("bundle/audios/sheildappear.mp3", option);
+	AR.audio.set("bundle/audios/failed.mp3", option);
+	AR.audio.set("bundle/audios/success.mp3", option);
 
 	AR.audio.play("bundle/audios/bgm.mp3");
 	AR.setInterval(function(){
-		AR.audio.set("bundle/audios/bgm.mp3", option)
+		AR.audio.set("bundle/audios/bgm.mp3", bgmOption);
 		AR.audio.play("bundle/audios/bgm.mp3");
 	},24000);
 };
@@ -82,15 +83,21 @@ AR.onend = function(clipId) {
 	};
 };
 
+
 AR.onclick = function(nodeId, x, y) {
 	if (excuteOpperate != null)
 		excuteOpperate.Selected(nodeId);
 };
 
-// AR.ontouch = function(state, x, y) {
-// 	var node = AR.picknode(x, y);
-// 	excuteOpperate.Selected(node);
-// }
+
+// AR.onevent = function (eventName, extra) {
+// 	AR.toast(extra);
+//     // if (eventName == 'onVolumeChanged') {
+//     //     AR.log('onVolumeChanged:' + extraObj.volume);
+//     // }
+// };
+
+
 
 
 function HomeView() {};
